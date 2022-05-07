@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create the menu pop up.
+ * Create the menu pop-up.
  */
 
 if ( !function_exists( 'res_menu_popup' ) ) {
@@ -22,4 +22,12 @@ if ( !function_exists( 'res_menu_popup' ) ) {
 
     }
 
+}
+
+// Callback.
+
+if ( !function_exists('res_options_menu_popup') ) {
+    function res_options_menu_popup() {
+        echo "Menú  de optiones";
+    }
 }
