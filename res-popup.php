@@ -12,3 +12,18 @@
  * Domain Path:         /languages
  */
 
+// When activate plugin.
+
+register_activation_hook(__FILE__, 'res_install');
+
+function res_install() {
+    require_once 'activador.php';
+}
+
+// When desactivation plugin
+
+registe_deactivation(__FILE__, 'res_desactivador');
+
+function res_desactivador() {
+    flush_rewrite_rules();
+}
