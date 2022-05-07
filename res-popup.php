@@ -21,9 +21,12 @@ function res_install() {
 }
 
 // When desactivation plugin
-
-registe_deactivation(__FILE__, 'res_desactivador');
+register_deactivation_hook(__FILE__, 'res_desactivador');
 
 function res_desactivador() {
     flush_rewrite_rules();
 }
+
+// Menu options.
+
+require_once 'partials/res-menu.php';
