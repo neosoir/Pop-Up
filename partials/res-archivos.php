@@ -138,19 +138,35 @@ function res_data_popup() {
 
         if ( $tipo == 'add' ) {
             if ( get_option( 'res_popup' ) == null ) {
-                if (condition) {
-                    $args[] = [
-                        'nombre' => $nombre,
-                        'id'     => $id
-                    ];
 
-                    $data = add_option( 'res_popup', $args, true );
+                $args[] = [
+                    'nombre' => $nombre,
+                    'id'     => $id
+                ];
 
-                    $json = json_encode([
-                        'data' => $data,
-                        'objeto' => $args
-                    ]);
-                }
+                $data = add_option( 'res_popup', $args, true );
+
+                $json = json_encode([
+                    'data' => $data,
+                    'objeto' => $args
+                ]);
+            }
+            else if ( get_option( 'res_popup' ) !== null ) {
+                
+                $args = [
+                    'nombre' => $nombre,
+                    'id'     => $id
+                ];
+
+                $objeto = get_option('res_popup');
+                array_push( $datos_u, $args );
+                $data = update_option( 'res_popup', $datos_u, true );
+
+                $json = json_encode([
+                    'objeto' => $objeto,
+                    'datos_u' => $datos_u,
+                    'id' => $id
+                ]);
             }
         }
 

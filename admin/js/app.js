@@ -43,7 +43,19 @@ $(document).ready(function() {
                 datos_u: dataPopup.objeto
             },
             success: function( res ) {
+                console.log( res.objetos );
+                console.log( res.datos_u );
 
+                setTimeout( function () {
+                    var Modalpopup = new bootstrap.Modal(document.getElementById('Modalpopup'), {
+                        keyboard: false
+                    });
+
+                    Modalpopup.hide();
+                    
+                }, 1500);
+
+                location.href = "?page=res_popup&edit=" + modalNombre + "&id=" + modalId;
             }
         })
     });
