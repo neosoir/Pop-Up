@@ -112,4 +112,15 @@ function enqueue_scripts( $hook ) {
         '5.1.0',
         true
     );
+
+    // Localize script
+    wp_localize_script(
+        'admin-script',
+        'dataPopup',
+        [
+            'url'       =>  admin_url('admin-ajax.php'),
+            'seguridad' =>  wp_create_nonce('resdata_seg'),
+            'objeto'    =>  get_options('res_popup')
+        ]
+    );
 }
