@@ -9,3 +9,8 @@
 .cart .cart-header {
     background-color: rgba(253, 253, 253, 0.7);
 }
+
+.page-menu .catd-body .btn-crear {
+    line-height: 15px;
+    padding: 8px 15px;
+}
