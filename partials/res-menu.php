@@ -27,7 +27,16 @@ if ( !function_exists( 'res_menu_popup' ) ) {
 // Callback.
 
 if ( !function_exists('res_options_menu_popup') ) {
+
     function res_options_menu_popup() {
-        include plugin_dir_path( __DIR__ ) . 'admin/res-display-menu.php';
+
+        if ( $_GET['edit'] && $_GET['id'] ) {
+            include plugin_dir_path( __DIR__ ) . 'admin/res-display-menu-edit.php';
+        }  
+        else {
+            include plugin_dir_path( __DIR__ ) . 'admin/res-display-menu.php';
+        }  
+        
     }
+
 }
