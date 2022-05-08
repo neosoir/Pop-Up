@@ -29,7 +29,24 @@ $(document).ready(function() {
     $('.modalData #btnGuardar').on('click', function() {
         modalNombre = $('.modalData #btnGuardar').val();
         modalId = Match.floor(Match.ramdom() * 100 );
-    })
+
+        $.ajax({
+            url: dataPopup.url,
+            type: 'post',
+            dataType: 'json',
+            data:   {
+                action: 'res_data_popup',
+                nonce: dataPopup.seguridad,
+                nombre: modalNombre,
+                id: modalId,
+                tipo: 'add',
+                datos_u: dataPopup.objeto
+            },
+            success: function( res ) {
+
+            }
+        })
+    });
 
 });
 

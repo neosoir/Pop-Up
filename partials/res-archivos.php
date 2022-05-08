@@ -124,3 +124,37 @@ function enqueue_scripts( $hook ) {
         ]
     );
 }
+
+// Resive data by ajax.
+add_action('wp_ajax_res_data_popup', 'res_data_popup');
+
+function res_data_popup() {
+    check_ajax_referer('resdata_seg', 'nonce');
+
+    if ( current_user_can( 'manage_options' ) ) {
+        
+        // convert arrar to variable.
+        extract( $_POST, EXTR_OVERWRITE );
+
+        if ( $tipo == 'add' ) {
+            if ( get_option( 'res_popup' ) == null ) {
+                if (condition) {
+                    $args[] = [
+                        'nombre' => $nombre,
+                        'id'     => $id
+                    ];
+
+                    $data = add_option( 'res_popup', $args, true );
+
+                    $json = json_encode([
+                        'data' => $data,
+                        'objeto' => $args
+                    ]);
+                }
+            }
+        }
+
+        echo $json;
+        wp_die();
+    }
+}
