@@ -4,7 +4,7 @@
  * Enqueue css and js.
  */
 
-add_action( 'admin_enqueue_scrips', 'enqueue_styles' );
+add_action( 'admin_enqueue_scripts', 'enqueue_styles' );
 
 function enqueue_styles( $hook ) {
     if ( $hook != 'toplevel_page_res_popup') {
@@ -80,9 +80,36 @@ function enqueue_styles( $hook ) {
 
 }
 
+add_action( 'admin_enqueue_scripts', 'enqueue_scripts');
+
 function enqueue_scripts( $hook ) {
     if ( $hook != 'toplevel_page_res_popup') {
         return;
     }
 
+    // Principal archive.
+    wp_enqueue_script(
+        'admin-script',
+        plugin_dir_url( __DIR__ ) . 'admin/js/app.js',
+        ['jquery', 'bootstrap-min'],
+        '1.0.0',
+        true
+    );
+
+    // Bootstrap library
+    wp_enqueue_script(
+        'bootstrap-min',
+        plugin_dir_url( __DIR__ ) . 'admin/js/app.js',
+        ['jquery'],
+        '5.1.0',
+        true
+    );
+
+    wp_enqueue_script(
+        'bootstrap-bundle',
+        plugin_dir_url( __DIR__ ) . 'helpers/bootstrap-5.1/js/bootstrap.bundle.min.js',
+        ['jquery'],
+        '5.1.0',
+        true
+    );
 }
