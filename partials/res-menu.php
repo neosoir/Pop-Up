@@ -28,6 +28,6 @@ if ( !function_exists( 'res_menu_popup' ) ) {
 
 if ( !function_exists('res_options_menu_popup') ) {
     function res_options_menu_popup() {
-        echo "Menú  de optiones";
+        include plugin_dir_path( __DIR__ ) . 'admin/res-display-menu.php';
     }
 }

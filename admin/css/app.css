@@ -1,0 +1,11 @@
+#wpwrap {
+    background-color: #f1f1f1;
+}
+
+.cart{
+    padding: 0px;
+}
+
+.cart .cart-header {
+    background-color: rgba(253, 253, 253, 0.7);
+}
