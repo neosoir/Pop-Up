@@ -30,3 +30,7 @@ function res_desactivador() {
 // Menu options.
 
 require_once 'partials/res-menu.php';
+
+// Enqueue css and js.
+
+require_once 'partials/res-archivos.php';
