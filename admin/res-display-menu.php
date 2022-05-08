@@ -83,7 +83,7 @@
 
                         ?>
                         </tbody>
-                        
+
                         <!--Boton crear-->
                         <a href="#" type="button" class="btn btn-primary text-uppercase btn-crear" id="btn_crear">
                             <span class="dashicons dashicons-plus"></span> Crear
@@ -95,3 +95,5 @@
 
     </div>
 </div>
+
+<?php include 'res-modal.php'; ?>
