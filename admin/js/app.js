@@ -27,7 +27,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     $('.modalData #btnGuardar').on('click', function() {
-        modalNombre = $('.modalData #btnGuardar').val();
+        modalNombre = $('.modalData #dataNom').val();
         modalId = Math.floor(Math.random() * 100 );
 
         $.ajax({
