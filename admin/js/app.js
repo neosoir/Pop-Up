@@ -43,7 +43,7 @@ $(document).ready(function() {
                 datos_u: dataPopup.objeto
             },
             success: function( res ) {
-                console.log( res.objetos );
+                console.log( res.objeto );
                 console.log( res.datos_u );
 
                 setTimeout( function () {
@@ -55,7 +55,7 @@ $(document).ready(function() {
 
                 }, 1500);
 
-                location.href = "?page=res_popup&edit=" + modalNombre + "&id=" + modalId;
+                //location.href = "?page=res_popup&edit=" + modalNombre + "&id=" + modalId;
             }
         })
     });
