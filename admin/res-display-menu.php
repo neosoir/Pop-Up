@@ -69,12 +69,8 @@ $dato = get_option('res_popup');
                                     </tr>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <?= "" ?>
+                                <?= "No entramos" ?>
                             <?php endif; ?>
-
-
-                        
-<!--                              -->
                         </tbody>
 
                         <!--Boton crear-->
