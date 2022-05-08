@@ -51,37 +51,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php 
-                            if($dato != ''){
-                                
-                                foreach($dato as $key => $datos):
-                                    
-                                    $output = "
-                                        <tr id='$datos[id]' data-nombre='$datos[nombre]'>
-                                            <th scope='row'>$datos[nombre]</th>
-                                            <td>[popup nombre='$datos[nombre]' id='$datos[id]']</td>
-                                            <td>
-                                                <a href='#' type='button' class='btn btn-outline-info' id='btn_editar'>
-                                                    <span class='dashicons dashicons-welcome-write-blog'></span>
-                                                </a>
-                                                <a type='button' class='btn btn-outline-danger' id='btn_eliminar' data-objeto='$key'>
-                                                    <span class='dashicons dashicons-trash'></span>
-                                                </a>
-                                            </td>
-                                        </tr>";
-
-                                    echo $output;
-
-                                endforeach; 
-
-                            }else{
-
-                                echo $output = '';
-
-                            }
-
-
-                        ?>
+                            <tr>
+                                <th scope='row'>pop up 1</th>
+                                <td>Pop up navidad</td>
+                                <td>
+                                    <a href='#' type='button' class='btn btn-outline-info' id='btn_editar'>
+                                        <span class='dashicons dashicons-welcome-write-blog'></span>
+                                    </a>
+                                    <a type='button' class='btn btn-outline-danger' id='btn_eliminar' data-objeto='$key'>
+                                        <span class='dashicons dashicons-trash'></span>
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
 
                         <!--Boton crear-->
