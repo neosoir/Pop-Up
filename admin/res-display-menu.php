@@ -2,6 +2,8 @@
 /**
  * HTML of firts page.
  */
+
+$dato = get_option('res_popup');
 ?>
 
 <div class="container-fluid page-menu" style="background-color: #f1f1f1">
@@ -51,18 +53,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope='row'>pop up 1</th>
-                                <td>Pop up navidad</td>
-                                <td>
-                                    <a href='#' type='button' class='btn btn-outline-info' id='btn_editar'>
-                                        <span class='dashicons dashicons-welcome-write-blog'></span>
-                                    </a>
-                                    <a type='button' class='btn btn-outline-danger' id='btn_eliminar' data-objeto='$key'>
-                                        <span class='dashicons dashicons-trash'></span>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php if ($dato != ''): ?>
+                                <?php foreach ( $dato as $key => $datos ): ?>
+                                    <tr id="<?= $datos['id'] ?>"  data-nombre="<?= $datos['nombre'] ?>">
+                                        <th scope='row'><?= $datos['nombre'] ?></th>
+                                        <td>Pop up navidad</td>
+                                        <td>
+                                            <a href='#' type='button' class='btn btn-outline-info' id='btn_editar'>
+                                                <span class='dashicons dashicons-welcome-write-blog'></span>
+                                            </a>
+                                            <a type='button' class='btn btn-outline-danger' id='btn_eliminar' data-objeto='$key'>
+                                                <span class='dashicons dashicons-trash'></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <?= "" ?>
+                            <?php endif; ?>
+
+
+                        
+<!--                              -->
                         </tbody>
 
                         <!--Boton crear-->
