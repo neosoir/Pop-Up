@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     $('.modalData #btnGuardar').on('click', function() {
         modalNombre = $('.modalData #btnGuardar').val();
-        modalId = Match.floor(Match.ramdom() * 100 );
+        modalId = Math.floor(Math.random() * 100 );
 
         $.ajax({
             url: dataPopup.url,
@@ -52,7 +52,7 @@ $(document).ready(function() {
                     });
 
                     Modalpopup.hide();
-                    
+
                 }, 1500);
 
                 location.href = "?page=res_popup&edit=" + modalNombre + "&id=" + modalId;

@@ -120,7 +120,7 @@ function enqueue_scripts( $hook ) {
         [
             'url'       =>  admin_url('admin-ajax.php'),
             'seguridad' =>  wp_create_nonce('resdata_seg'),
-            'objeto'    =>  get_options('res_popup')
+            'objeto'    =>  get_option('res_popup')
         ]
     );
 }
