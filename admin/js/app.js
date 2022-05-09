@@ -107,8 +107,6 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-    $('#camposSwitch').hide();
-
     $('.switch').on('click', function() {
         var check = $('#switch input[type=checkbox]');
 
@@ -120,6 +118,64 @@ $(document).ready(function() {
         }
     });
 });
+
+// function onload options of call to actions button
+
+window.onload = function() {
+
+    //recuperamos los valores de la url
+    var valores = window.location.search;
+
+    //instanciamos a la clase URLSearchParams y creamos un objeto
+    var urlParams = new URLSearchParams(valores);
+
+    //verificar si existe un parámetro
+    var edit = urlParams.has('edit');
+    var idEdit = urlParams.has('id');
+
+
+    var checkbox = $('#switch input[type=checkbox]');
+    var validate = checkbox.attr('data-check');
+
+    //radio buttons
+    var radioButton1 = $('#camposSwitch #newTab');
+    var validateRadio1 = radioButton1.attr('data-check');
+
+    var radioButton2 = $('#camposSwitch #sameTab');
+    var validateRadio2 = radioButton2.attr('data-check');
+
+    //convertimos el string true a un valor booleano
+    validate = (validate === 'true');
+
+    if( edit == true && idEdit == true ){
+
+        if( validate == true ){
+            
+            checkbox.prop('checked', true);
+            
+        }else{
+
+            checkbox.prop('checked', false);
+            $("#camposSwitch").hide();
+            
+        }
+
+        //radio buttons validate
+        if(validateRadio1 == 'true'){
+            radioButton1.prop('checked', true)
+        }else{
+            radioButton1.prop('checked', false)
+        }
+
+        if(validateRadio2 == 'true'){
+            radioButton2.prop('checked', true)
+        }else{
+            radioButton2.prop('checked', false)
+        }
+
+    }
+
+};
 
 // 
 
