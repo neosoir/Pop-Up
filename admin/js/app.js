@@ -16,7 +16,18 @@ var popupId;
 
 var marco;
 var imgDataEdit = $('.block-02 #imgFondo');
-var img = $('.campo-imagen #imagen img');
+var imagen = $('.campo-imagen #imagen img');
+
+//Ajax edit pop-up
+var tituloDataEdit      = $('.block-02 #titulo');
+var subtituloDataEdit   = $('.block-02 #subTitulo');
+var btnTitle            = $('#camposSwitch #btnText1');
+var btnCheck            = $('#switch input[type=checkbox]');
+var btnCheck1           = $('#camposSwitch #newTab');
+var btnCheck2           = $('#camposSwitch #sameTab');
+var btnUrl              = $('#camposSwitch #btnUrl');
+var URLactual           = window.location;
+
 
 // jQuery fuction.
 $(document).ready(function() {
@@ -141,7 +152,7 @@ $(document).ready(function() {
 
             // set url clean.
             imgDataEdit.val(ulrLimpia);
-            img.attr('src', ulrLimpia)
+            imagen.attr('src', ulrLimpia)
         });
 
         marco.open();
@@ -174,8 +185,25 @@ function limpiar_ruta( url ) {
     }
 }
 
+// Ajax edit pop up.
 
+$(document).ready(function() {
 
+    $('.block-02 #btnSave').on('click', function() {
+
+        var titulo          = tituloDataEdit.val();
+        var subtitulo       = subtituloDataEdit.val();
+        var imagenUrl       = imgDataEdit.val();
+        var textDataEdit    = tinyMCE.activeEditor.getContent();
+        var dataNombre      = $(this).attr('data-nombre');
+        var buttonCheck     = btnCheck.is(':checked');
+        var buttonTitle     = btnTitle.val();
+        var buttonCheck1    = btnCheck1.is(':checked');
+        var buttonCheck2    = btnCheck2.is(':checked');
+        var buttonUrl       = btnUrl.val();
+
+    });
+});
 
 
 
