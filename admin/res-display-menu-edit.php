@@ -8,10 +8,15 @@ $nombrePopup    = $nombre . '-ID-' . $id;
 // Get data to create pop up.
 $dataEditPopup = get_option($nombrePopup);
 
-echo "<pre>";
-var_dump($dataEditPopup);
-echo "</pre>";
-
+$titulo         = ($dataEditPopup != null ? $dataEditPopup[0]['titulo'] : '');
+$subtitulo      = ($dataEditPopup != null ? $dataEditPopup[0]['subtitulo'] : '');
+$imagen         = ($dataEditPopup != null ? $dataEditPopup[0]['imagen'] : '');
+$texto          = ($dataEditPopup != null ? $dataEditPopup[0]['texto'] : '');
+$buttonCheck    = ($dataEditPopup != null ? $dataEditPopup[0]['buttonCheck'] : false);
+$buttonTitle    = ($dataEditPopup != null ? $dataEditPopup[0]['buttonTitle'] : '');
+$buttonCheck1   = ($dataEditPopup != null ? $dataEditPopup[0]['buttonCheck1'] : 'true');
+$buttonCheck2   = ($dataEditPopup != null ? $dataEditPopup[0]['buttonCheck2'] : 'false');
+$buttonUrl      = ($dataEditPopup != null ? $dataEditPopup[0]['buttonUrl'] : '');
 
 ?>
 
