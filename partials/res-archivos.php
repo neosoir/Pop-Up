@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Enqueue css and js.
+ * Enqueue css.
  */
 
 add_action( 'admin_enqueue_scripts', 'enqueue_styles' );
@@ -80,6 +80,10 @@ function enqueue_styles( $hook ) {
 
 }
 
+/**
+ * Enqueue js.
+ */
+
 add_action( 'admin_enqueue_scripts', 'enqueue_scripts');
 
 function enqueue_scripts( $hook ) {
@@ -123,12 +127,14 @@ function enqueue_scripts( $hook ) {
             'objeto'    =>  get_option('res_popup')
         ]
     );
+
 }
 
 // Resive data by ajax.
 add_action('wp_ajax_res_data_popup', 'res_data_popup');
 
 function res_data_popup() {
+
     check_ajax_referer('resdata_seg', 'nonce');
 
     if ( current_user_can( 'manage_options' ) ) {
@@ -137,6 +143,7 @@ function res_data_popup() {
         extract( $_POST, EXTR_OVERWRITE );
 
         if ( $tipo == 'add' ) {
+            
             if ( get_option( 'res_popup' ) == null ) {
 
                 $args[] = [

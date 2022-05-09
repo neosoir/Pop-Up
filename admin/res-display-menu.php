@@ -53,7 +53,7 @@ $dato = get_option('res_popup');
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($dato != ''): ?>
+                            <?php if ( $dato != '' ): ?>
                                 <?php foreach ( $dato as $key => $datos ): ?>
                                     <tr id="<?= $datos['id'] ?>"  data-nombre="<?= $datos['nombre'] ?>">
                                         <th scope='row'><?= $datos['nombre'] ?></th>
@@ -69,7 +69,7 @@ $dato = get_option('res_popup');
                                     </tr>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <?= "No entramos" ?>
+                                <?= "No entramos" . var_dump($dato) ?>
                             <?php endif; ?>
                         </tbody>
 
