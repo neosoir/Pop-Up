@@ -32,3 +32,9 @@
     display: flex;
     justify-content: flex-end;
 }
+
+/* Confing modal page */
+
+.page-edit-popup .block-02 .buttonsActions button {
+    line-height: 18px;
+}

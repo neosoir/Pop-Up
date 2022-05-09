@@ -77,8 +77,13 @@ $(document).ready(function() {
     });
 });
 
+// Button back to principal page
 
-
+$(document).ready(function() {
+    $('.block-01 #volverAtras').on('click', function() {
+        location.href = "?page=res_popup";
+    });
+});
 
 
 
