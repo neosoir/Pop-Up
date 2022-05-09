@@ -115,6 +115,55 @@ $nombrePopup    = $nombre . '-ID-' . $id;
                                 <div class="divider"></div>
                             </div>
                         </div>
+                        <!--call to action-->
+                        <div class="row campo-callToAction">
+                            <div class="col-sm-12 col-md-4">
+                                <h6>Llamada a la acción</h6>
+                                <p>
+                                    Añade aquí el nombre para tu botón de la llamada a la acción, 
+                                    por ejemplo ver más o ver el siguiente enlace y luego añade la url
+                                    hacia donde quieres redirigir.
+
+                                </p>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <label class="switch" id="switch">
+                                    <input type="checkbox" data-check="<?= $buttonCheck ?>">
+                                    <div class="slider round"></div>
+                                </label>
+                                <div id="camposSwitch" class="camposSwitch">
+                                    <div class="card text-dark bg-light mb-3" style="max-width: 100%">
+                                        <div class="card-body row">
+                                            <div class="col-12 col-sm-6">
+                                                <div class="mb-3">
+                                                    <label for="btnText1" class="btnText1">Título para el botón</label>
+                                                    <input type="text" class="form-control" id="btnText1" placeholder="Título para el botón" value="<?= $buttonTitle ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6">
+                                                <div class="mb-3">
+                                                    <h6>Abrir el link</h6>
+                                                    <input type="radio" class="btn-check" name="tabsOptions" id="newTab" autocomplete="off" data-check="<?= $buttonCheck1 ?>">
+                                                    <label class="btn btn-outline-secondary" for="newTab">Nueva ventana</label>
+
+                                                    <input type="radio" class="btn-check" name="tabsOptions" id="sameTab" autocomplete="off" data-check="<?= $buttonCheck2 ?>">
+                                                    <label class="btn btn-outline-secondary" for="sameTab">Misma ventana</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12">
+                                                <div class="mb-3">
+                                                    <label for="btnUrl" class="btnUrl">URL del botón</label>
+                                                    <input type="text" class="form-control" id="btnUrl" placeholder="Escriba aquí la url para el botón" value="<?= $buttonUrl ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12">
+                                <div class="divider"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
