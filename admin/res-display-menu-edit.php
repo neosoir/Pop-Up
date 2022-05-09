@@ -91,7 +91,7 @@ $buttonUrl      = ($dataEditPopup != null ? $dataEditPopup[0]['buttonUrl'] : '')
                                     <span class="input-group-text" id="basic-addon2">@</span>
                                 </div>
                                 <div class="imagen mt-3" id="imagen">
-                                    <img class="img-fluid" src="" alt="">
+                                    <img class="img-fluid" src="<?= $imagen ?>" alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12">
