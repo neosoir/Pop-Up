@@ -202,6 +202,36 @@ $(document).ready(function() {
         var buttonCheck2    = btnCheck2.is(':checked');
         var buttonUrl       = btnUrl.val();
 
+        $.ajax({
+            url: dataCreatePopup.url,
+            type: 'post',
+            dataType: 'json',
+            data: {
+                action:         'res_create_popup',
+                nonce:          dataCreatePopup.seguridad,
+                nombre:         dataNombre,
+                titulo:         titulo,
+                subtitulo:      subtitulo,
+                imagen:         imagenUrl,
+                texto:          textDataEdit,
+                buttonCheck:    buttonCheck,
+                buttonTitle:    buttonTitle,
+                buttonCheck1:   btnCheck1,
+                buttonCheck2:   buttonCheck2,
+                buttonUrl:      buttonUrl,
+                tipo:           'create'
+            },
+            success: function(res){
+                console.log(res);
+                location.href = URLactual;
+                console.log(res.data);
+                console.log(res.objeto);
+
+            }
+            
+
+        });
+
     });
 });
 
