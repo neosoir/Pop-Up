@@ -78,7 +78,7 @@ $nombrePopup    = $nombre . '-ID-' . $id;
                                     <span class="input-group-text" id="basic-addon2">@</span>
                                 </div>
                                 <div class="imagen mt-3" id="imagen">
-                                    <img class="img-fluid" src="http://localhost/_curso02/wp-content/uploads/2020/04/04-1.jpg" alt="">
+                                    <img class="img-fluid" src="" alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12">

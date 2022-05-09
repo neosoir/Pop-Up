@@ -137,7 +137,11 @@ $(document).ready(function() {
 
         marco.on('select', function() {
             var imgPopup = marco.state().get('selection').first().toJSON();
-            console.log(imgPopup);
+            var ulrLimpia = limpiar_ruta( imgPopup.url );
+
+            // set url clean.
+            imgDataEdit.val(ulrLimpia);
+            img.attr('src', ulrLimpia)
         });
 
         marco.open();
@@ -145,6 +149,30 @@ $(document).ready(function() {
 
 });
 
+// Clean url to get img
+
+function limpiar_ruta( url ) {
+
+    var local = /localhost/;
+
+    if( local.test(local) ) {
+
+        var url_pathname = location.pathname;
+        var indexPost = url_pathname.indexOf('wp-admin');
+        var url_pos = url_pathname.substr(0, indexPost);
+        var url_delete = location.protocol + '//' + location.host + url_pos;
+
+        //console.log( url_delete );
+        return url_pos + url.replace(url_delete, '');
+    }
+
+    else {
+
+        // remote server.
+        var ulr_real = location.protocol + '//' + location.hostname;
+
+    }
+}
 
 
 
