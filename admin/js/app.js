@@ -47,7 +47,7 @@ $(document).ready(function() {
                 console.log( res.datos_u );
 
                 setTimeout( function () {
-                    var Modalpopup = new bootstrap.Modal(document.getElementById('Modalpopup'), {
+                    Modalpopup = new bootstrap.Modal(document.getElementById('Modalpopup'), {
                         keyboard: false
                     });
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
 
                 }, 1500);
 
-                //location.href = "?page=res_popup&edit=" + modalNombre + "&id=" + modalId;
+                location.href = "?page=res_popup&edit=" + modalNombre + "&id=" + modalId;
             }
         })
     });
@@ -63,8 +63,19 @@ $(document).ready(function() {
 });
 
 
+// button to edit pop-up.
 
+$(document).ready(function() {
+    $('#tableId tr #btn_editar').on('click', function() {
+        var item = $(this);
+        var tr = item.parent().parent();
 
+        popupNombre = tr.attr('data-nombre');
+        popupId = tr.attr('id');
+
+        location.href = "?page=res_popup&edit=" + popupNombre + "&id=" + popupId;
+    });
+});
 
 
 
