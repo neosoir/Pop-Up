@@ -11,6 +11,13 @@ var modalId;
 var popupNombre;
 var popupId;
 
+
+// Global varibles multimedia
+
+var marco;
+var imgDataEdit = $('.block-02 #imgFondo');
+var img = $('.campo-imagen #imagen img');
+
 // jQuery fuction.
 $(document).ready(function() {
 
@@ -102,6 +109,46 @@ $(document).ready(function() {
         }
     });
 });
+
+// 
+
+$(document).ready(function() {
+
+    $('#imgFondo').on('click', function(e) {
+        e.preventDefault();
+
+        if ( marco ) {
+            marco.open();
+            return;
+        }
+
+        //multimedia gestor of wordpress.
+        marco = wp.media({
+            frame: 'select',
+            title: 'Seleccionar la imagen del pop-up',
+            button: {
+                text: 'usar imagen'
+            },
+            multiple: false,
+            library: {
+                type: 'image'
+            }
+        });
+
+        marco.on('select', function() {
+            var imgPopup = marco.state().get('selection').first().toJSON();
+            console.log(imgPopup);
+        });
+
+        marco.open();
+    })
+
+});
+
+
+
+
+
 
 
 /* jQuery(function($){

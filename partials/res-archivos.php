@@ -117,7 +117,7 @@ function enqueue_scripts( $hook ) {
         true
     );
 
-    // Localize script
+    // Localize script edit pop up
     wp_localize_script(
         'admin-script',
         'dataPopup',
@@ -126,6 +126,21 @@ function enqueue_scripts( $hook ) {
             'seguridad' =>  wp_create_nonce('resdata_seg'),
             'objeto'    =>  get_option('res_popup')
         ]
+    );
+
+    /**
+    * Funcion para utilizar el marco multimedia de wordpress
+    */
+    wp_enqueue_media();
+
+    //función para crear popup con los datos
+    wp_localize_script(
+        'admin-script',
+        'dataCreatePopup',
+        array(
+            'url' => admin_url('admin-ajax.php'),
+            'seguridad' => wp_create_nonce('resdata_seg')
+        )
     );
 
 }
