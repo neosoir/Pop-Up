@@ -103,7 +103,7 @@ function enqueue_scripts( $hook ) {
     // Bootstrap library
     wp_enqueue_script(
         'bootstrap-min',
-        plugin_dir_url( __DIR__ ) . 'admin/js/app.js',
+        plugin_dir_url( __DIR__ ) . 'helpers/bootstrap-5.1/js/bootstrap.min.js',
         ['jquery'],
         '5.1.0',
         true
@@ -135,6 +135,7 @@ add_action('wp_ajax_res_data_popup', 'res_data_popup');
 
 function res_data_popup() {
 
+    // Check nonce security
     check_ajax_referer('resdata_seg', 'nonce');
 
     if ( current_user_can( 'manage_options' ) ) {
@@ -158,7 +159,7 @@ function res_data_popup() {
                     'objeto' => $args
                 ]);
             }
-            else if ( get_option( 'res_popup' ) !== null ) {
+            else if ( get_option( 'res_popup' ) != null ) {
                 
                 $args = [
                     'nombre' => $nombre,
@@ -177,6 +178,7 @@ function res_data_popup() {
             }
         }
 
+        // Print data and close the ajax query.
         echo $json;
         wp_die();
     }
