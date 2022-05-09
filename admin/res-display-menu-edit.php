@@ -43,7 +43,77 @@ $nombrePopup    = $nombre . '-ID-' . $id;
                     <div class="card-body">
                         <!--titulo-->
                         <div class="row campo-tiulo">
-                            Aqui van los campos.
+                            <div class="col-sm-12 col-md-4">
+                                <h6>Titulo</h6>
+                                <p>
+                                    Añade un  título y un subtítulo para tu pop-up
+                                </p>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <div class="mb-3">
+                                    <label for="titulo" class="form-label">Título (opcional)</label>
+                                    <input type="text" class="form-control" id="titulo" placeholder="Título" value="<?= $titulo ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="titulo" class="form-label">Subtítulo (opcional)</label>
+                                    <input type="text" class="form-control" id="subTitulo" placeholder="Subtítulo" value="<?= $subtitulo ?>">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12">
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <!--imagen-->
+                        <div class="row campo-imagen">
+                            <div class="col-sm-12 col-md-4">
+                                <h6>Imagen</h6>
+                                <p>
+                                    Añade aquí una imagen de fondo para tu pop-up
+                                </p>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <h5>Imagen de fondo</h5>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="imgFondo" placeholder="#" aria-label="#" aria-describedby="basic-addon2" value="<?= $imagen ?>">
+                                    <span class="input-group-text" id="basic-addon2">@</span>
+                                </div>
+                                <div class="imagen mt-3" id="imagen">
+                                    <img class="img-fluid" src="http://localhost/_curso02/wp-content/uploads/2020/04/04-1.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12">
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <!--My contenido-->
+                        <div class="row campo-imagen">
+                            <div class="col-sm-12 col-md-4">
+                                <h6>My contenido</h6>
+                                <p>
+                                    Añade aquí el texto para tu pop-up
+                                </p>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <div class="mb-3" id="myContent">
+                                    <?php 
+                                    
+                                    // open the editor of wordpress (tiny mce).
+                                    $content = $texto;
+                                    $editor_id = $id;
+                                    $args = [
+                                        'tinymce' => true,
+                                        'content_css'   => '/wp-content/themes/mytheme/css/tinymce-editor.css',
+                                        'media_buttons' => true,
+                                        'textarea_rows' => 8
+                                      
+                                    ];
+                                    $texto = wp_editor( $content, $editor_id, $args );
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12">
+                                <div class="divider"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

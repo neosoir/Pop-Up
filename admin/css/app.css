@@ -38,3 +38,8 @@
 .page-edit-popup .block-02 .buttonsActions button {
     line-height: 18px;
 }
+
+.page-edit-popup .block-02 .divider {
+    border-top: 1px solid #aba4a461;
+    margin: 20px 0px;
+}
