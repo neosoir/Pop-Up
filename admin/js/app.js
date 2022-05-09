@@ -190,6 +190,7 @@ function limpiar_ruta( url ) {
 $(document).ready(function() {
 
     $('.block-02 #btnSave').on('click', function() {
+        //console.log('click');
 
         var titulo          = tituloDataEdit.val();
         var subtitulo       = subtituloDataEdit.val();
@@ -216,7 +217,7 @@ $(document).ready(function() {
                 texto:          textDataEdit,
                 buttonCheck:    buttonCheck,
                 buttonTitle:    buttonTitle,
-                buttonCheck1:   btnCheck1,
+                buttonCheck1:   buttonCheck1,
                 buttonCheck2:   buttonCheck2,
                 buttonUrl:      buttonUrl,
                 tipo:           'create'

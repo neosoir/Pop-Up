@@ -145,7 +145,7 @@ function enqueue_scripts( $hook ) {
 
 }
 
-// Resive data by ajax.
+// Create basic data of pop up using ajax.
 add_action('wp_ajax_res_data_popup', 'res_data_popup');
 
 function res_data_popup() {
@@ -190,6 +190,77 @@ function res_data_popup() {
                     'datos_u' => $datos_u,
                     'id' => $id
                 ]);
+            }
+        }
+
+        // Print data and close the ajax query.
+        echo $json;
+        wp_die();
+    }
+}
+
+// Function to create the pop up using ajax.
+add_action('wp_ajax_res_create_popup', 'res_create_popup');
+
+function res_create_popup() {
+
+    // Check nonce security
+    check_ajax_referer('resdata_seg', 'nonce');
+
+    if ( current_user_can( 'manage_options' ) ) {
+        
+        // convert arrar to variable.
+        extract( $_POST, EXTR_OVERWRITE );
+
+        if ( $tipo == 'create' ) {
+            
+            if( get_option($nombre) == null ){
+
+                $args[] = array(
+                    'nombre'        => $nombre,
+                    'titulo'        => $titulo,
+                    'subtitulo'     => $subtitulo,
+                    'imagen'        => $imagen,
+                    'texto'         => $texto,
+                    'buttonCheck'   => $buttonCheck,
+                    'buttonTitle'   => $buttonTitle,
+                    'buttonCheck1'  => $buttonCheck1,
+                    'buttonCheck2'  => $buttonCheck2,
+                    'buttonUrl'     => $buttonUrl
+                ); 
+    
+                $data = add_option( $nombre, $args, true );
+                $objeto = get_option( $nombre );
+                $json = json_encode([
+                   'data' => $data,
+                   'objeto' => $objeto,
+                ]);
+
+            }
+            else if( get_option($nombre) != null ){
+
+                $args[] = array(
+                    'nombre'        => $nombre,
+                    'titulo'        => $titulo,
+                    'subtitulo'     => $subtitulo,
+                    'imagen'        => $imagen,
+                    'texto'         => $texto,
+                    'buttonCheck'   => $buttonCheck,
+                    'buttonTitle'   => $buttonTitle,
+                    'buttonCheck1'  => $buttonCheck1,
+                    'buttonCheck2'  => $buttonCheck2,
+                    'buttonUrl'     => $buttonUrl
+                ); 
+                
+                $data = update_option( $nombre, $args, true );
+                $objeto = get_option( $nombre );
+                
+               
+                $json = json_encode([
+                    'data' => $data,
+                    'objeto' => $objeto
+                ]);
+
             }
         }
 

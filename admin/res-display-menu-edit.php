@@ -5,6 +5,14 @@ $nombre         = $_GET['edit'];
 $id             = $_GET['id'];
 $nombrePopup    = $nombre . '-ID-' . $id;
 
+// Get data to create pop up.
+$dataEditPopup = get_option($nombrePopup);
+
+echo "<pre>";
+var_dump($dataEditPopup);
+echo "</pre>";
+
+
 ?>
 
 <div class="container-fluid page-edit-popup">
