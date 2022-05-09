@@ -85,6 +85,23 @@ $(document).ready(function() {
     });
 });
 
+// Button swich
+
+$(document).ready(function() {
+
+    $('#camposSwitch').hide();
+
+    $('.switch').on('click', function() {
+        var check = $('#switch input[type=checkbox]');
+
+        if ( check.is(':checked')) {
+            $('#camposSwitch').show(1000);
+        }
+        else {
+            $('#camposSwitch').hide(1000);
+        }
+    });
+});
 
 
 /* jQuery(function($){
