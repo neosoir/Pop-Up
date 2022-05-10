@@ -382,6 +382,47 @@ function modal_edit( titulo, subtitulo, imgUrl, texto, buttonTitle, buttonCheck1
 
 } 
 
+//delete popup
+
+$(document).ready(function() {
+
+    $('#tableId tr #btn_eliminar').on('click', function(){
+
+        // Get the number key of pop up
+
+        var item            = $(this);
+        var objeto          = item.attr('data-objeto');
+        var tr              = item.parent().parent();
+
+        popupNombre         = tr.attr('data-nombre');
+        popupId             = tr.attr('id');
+
+        var deleltePopupEdit    = popupNombre + '-ID-' +popupId;
+
+        $.ajax({
+            url:        dataPopup.url,
+            type:       'post',
+            dataType:   'json',
+            data: {
+                action:     'res_data_popup',
+                nonce:      dataPopup.seguridad,
+                nombre:     deleltePopupEdit,
+                objeto:     objeto,
+                tipo:       'delete'
+            },
+            success: function(res) {
+                var deleteElement = document.getElementById(popupId);
+                deleteElement.remove();
+
+                // reflex window.
+                location.href = URLactual;
+            }
+        });
+
+    });
+
+});
+
 
 
 

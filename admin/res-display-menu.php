@@ -4,6 +4,7 @@
  */
 
 $dato = get_option('res_popup');
+
 ?>
 
 <div class="container-fluid page-menu" style="background-color: #f1f1f1">
