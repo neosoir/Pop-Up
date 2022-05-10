@@ -4,9 +4,9 @@
  * Enqueau all css and js files.
  */
 
-add_action( 'wp_enqueue_scripts', 'enqueau_style_public');
+add_action( 'wp_enqueue_scripts', 'enqueue_style_public');
 
-function enqueau_style_public() {
+function enqueue_style_public() {
     // Css
     wp_enqueue_style(
         'admin-style',
@@ -17,9 +17,9 @@ function enqueau_style_public() {
     );
 }
 
-add_action( 'wp_enqueue_scripts', 'enqueau_script_public');
+add_action( 'wp_enqueue_scripts', 'enqueue_scripts_public');
 
-function enqueau_script_public() {
+function enqueue_scripts_public() {
     // Css
     wp_enqueue_script(
         'admin-script',
@@ -34,32 +34,33 @@ function enqueau_script_public() {
 
 add_shortcode( 'popup', 'res_public_popup' );
 
-function res_public_popup( $atts, $content = '' ) {
+function res_public_popup( $atts, $content = '' ){
 
     $args = shortcode_atts(
-        [
+        array(
             'nombre' => '',
-            'id'    => '',
-        ],
+            'id' => ''
+        ),
         $atts
     );
 
     extract( $args, EXTR_OVERWRITE );
 
-    $popupEdit = $nombre . '-ID-' . $id;
+    //Establecemos el nombre que tendra el popup edit
+    $popupEdit = $nombre.'-ID-'.$id;
 
-    if ( $id != '' ) {
+    if($id != ''){
 
-        $data = get_option( $popupEdit );
+        $data = get_option($popupEdit);
 
-        if( $data != null ) {
+        if( $data != null ){
 
-            // convert to std_class
+            //Convertimos el arreglo en un objeto std class
             $objeto = (object) $data[0];
 
-            // validate button check to define target.
+            //validamos un boton check para definir el target
             $check = $objeto->buttonCheck1;
-            $target = ( $check == 'false' ? '_self' : '_blank' );
+            $target = ($check == 'false' ? '_self' : '_blank');
 
             $output = "
                 <div class='modal modalPreviewPublic' tabindex='-1' id='modalPreviewPublic'>
@@ -103,11 +104,12 @@ function res_public_popup( $atts, $content = '' ) {
                 </div>
             ";
 
-        }
-        else{
+        }else{
             $output = "<h5>No hay datos del pop up</h5>";
         }
 
         return $output;
+
     }
+
 }
