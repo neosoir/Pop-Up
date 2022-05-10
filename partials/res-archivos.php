@@ -192,6 +192,25 @@ function res_data_popup() {
                 ]);
             }
         }
+        elseif ( $tipo == 'delete' ) {
+
+            $data = get_option( 'res_popup' );
+
+            $objeto = (int) $objeto;
+
+            if ( is_int( $objeto ) ) {
+                unset( $data[$objeto] );
+                $update_data = update_option('res_popup', $data, true);
+            }
+            if ( get_option( $nombre ) ) 
+                $deleteObjet = delete_option( $nombre );
+            
+            $json = json_encode([
+                'objeto'    =>  $objeto,
+                'datos_u'   =>  $data,
+                'nombre'    =>  $nombre
+            ]);
+        }
 
         // Print data and close the ajax query.
         echo $json;
