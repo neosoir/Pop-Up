@@ -34,3 +34,8 @@ require_once 'partials/res-menu.php';
 // Enqueue css and js.
 
 require_once 'partials/res-archivos.php';
+
+// Public part.
+
+require_once 'public/res-public-popup.php';
+
