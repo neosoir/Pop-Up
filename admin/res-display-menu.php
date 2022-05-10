@@ -58,7 +58,7 @@ $dato = get_option('res_popup');
                                 <?php foreach ( $dato as $key => $datos ): ?>
                                     <tr id="<?= $datos['id'] ?>"  data-nombre="<?= $datos['nombre'] ?>">
                                         <th scope='row'><?= $datos['nombre'] ?></th>
-                                        <td>Pop up navidad</td>
+                                        <td>[popup nombre="<?= $datos['nombre'] ?>" id="<?= $datos['id'] ?>"]</td>
                                         <td>
                                             <a href='#' type='button' class='btn btn-outline-info' id='btn_editar'>
                                                 <span class='dashicons dashicons-welcome-write-blog'></span>
