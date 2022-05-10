@@ -391,7 +391,6 @@ $(document).ready(function() {
     $('#tableId tr #btn_eliminar').on('click', function(){
 
         // Get the number key of pop up
-
         var item            = $(this);
         var objeto          = item.attr('data-objeto');
         var tr              = item.parent().parent();
@@ -399,7 +398,8 @@ $(document).ready(function() {
         popupNombre         = tr.attr('data-nombre');
         popupId             = tr.attr('id');
 
-        var deleltePopupEdit    = popupNombre + '-ID-' +popupId;
+        var deletePopupEdit = popupNombre+'-ID-'+popupId;
+        
 
         $.ajax({
             url:        dataPopup.url,
@@ -408,7 +408,7 @@ $(document).ready(function() {
             data: {
                 action:     'res_data_popup',
                 nonce:      dataPopup.seguridad,
-                nombre:     deleltePopupEdit,
+                nombre:     deletePopupEdit,
                 objeto:     objeto,
                 tipo:       'delete'
             },

@@ -202,7 +202,7 @@ function res_data_popup() {
                 unset( $data[$objeto] );
                 $update_data = update_option('res_popup', $data, true);
             }
-            if ( get_option( $nombre ) ) 
+            if ( get_option( $nombre ) != null ) 
                 $deleteObjet = delete_option( $nombre );
             
             $json = json_encode([
