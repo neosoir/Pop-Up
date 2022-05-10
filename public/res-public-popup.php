@@ -20,11 +20,11 @@ function enqueue_style_public() {
 add_action( 'wp_enqueue_scripts', 'enqueue_scripts_public');
 
 function enqueue_scripts_public() {
-    // Css
+    // Js
     wp_enqueue_script(
         'admin-script',
         plugin_dir_url(__DIR__) . 'public/js/app.js',
-        ['jquery, bootstrap-min'],
+        ['jquery', 'bootstrap-min'],
         '1.0.0',
         true
     );
