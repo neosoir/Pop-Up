@@ -204,11 +204,13 @@ $(document).ready(function() {
 
         marco.on('select', function() {
             var imgPopup = marco.state().get('selection').first().toJSON();
-            var ulrLimpia = limpiar_ruta( imgPopup.url );
+
+            // Dont use this function (yet).
+            ///var ulrLimpia = limpiar_ruta( imgPopup.url );
 
             // set url clean.
-            imgDataEdit.val(ulrLimpia);
-            imagen.attr('src', ulrLimpia)
+            imgDataEdit.val(imgPopup.url );
+            imagen.attr('src', imgPopup.url )
         });
 
         marco.open();
@@ -218,7 +220,7 @@ $(document).ready(function() {
 
 // Clean url to get img
 
-function limpiar_ruta( url ) {
+/* function limpiar_ruta( url ) {
 
     var local = /localhost/;
 
@@ -237,9 +239,9 @@ function limpiar_ruta( url ) {
 
         // remote server.
         var ulr_real = location.protocol + '//' + location.hostname;
-
+        return url.replace(url_real, '');
     }
-}
+} */
 
 // Ajax edit pop up.
 
