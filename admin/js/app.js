@@ -292,6 +292,102 @@ $(document).ready(function() {
     });
 });
 
+// Preview event to pop-up.
+
+$(document).ready(function() {
+
+    $('.page-edit-popup #btnPreview').on('click', function(e) {
+
+        e.preventDefault();
+
+        
+        var titulo          = tituloDataEdit.val();
+        var subtitulo       = subtituloDataEdit.val();
+        var imgUrl          = imagen.attr('src');
+        var texto           = tinyMCE.activeEditor.getContent(); // to tiny editor
+        var buttonTitle     = btnTitle.val();
+        var buttonCheck1    = btnCheck1.attr('data-check');
+        var buttonUrl       = btnUrl.val();
+
+        modal_edit( titulo, subtitulo, imgUrl, texto, buttonTitle, buttonCheck1, buttonUrl );
+
+
+    });
+
+});
+
+// Function to add pop-up
+
+function modal_edit( titulo, subtitulo, imgUrl, texto, buttonTitle, buttonCheck1, buttonUrl ) {
+    
+    var ventana = '';
+    if ( buttonCheck1 == 'true' ) {
+        ventana = '_blank';
+    }
+    else {
+        ventana = '_self';
+    }
+
+    var html = '';
+
+    html += `
+    <div class="modal modalPreview" tabindex="-1" id="modalPreview">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="row">
+            <div class="col-4 col-sm-4">
+                <div class="class-imgFondo" style="background-image: url(${imgUrl})"></div>
+            </div>
+            <div class="col-8 col-sm-8">
+                <div class="mb-3 mt-2 row">
+                    <div class="col-12 col-sm- d-flex justify-content-end pd-btnclose">
+                        <div class="col-1">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">      
+                                <div class="boton-close"><span aria-hidden="true">×</span></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="mb-4 row">
+                    <div class="col-12 pd-textmodal">
+                        <div class="content-popup text-center">
+                            <h4>${titulo}</h4>
+                            <h6>${subtitulo}</h6>
+                            ${texto}
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5 row">
+                    <div class="col-12 pd-textmodal btn-callAction text-center">
+                        <a class="btn btn-success" href="${buttonUrl}" target="${ventana}">
+                            <span>${buttonTitle}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    `;
+
+    $('.page-edit-popup').append(html);
+
+    var Modalpopup = new bootstrap.Modal(document.getElementById('modalPreview'), {
+        keyboard: false
+    });
+
+    Modalpopup.show();
+
+} 
+
+
+
+
+
+
+
 
 
 /* jQuery(function($){
