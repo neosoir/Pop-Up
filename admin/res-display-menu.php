@@ -63,7 +63,7 @@ $dato = get_option('res_popup');
                                             <a href='#' type='button' class='btn btn-outline-info' id='btn_editar'>
                                                 <span class='dashicons dashicons-welcome-write-blog'></span>
                                             </a>
-                                            <a type='button' class='btn btn-outline-danger' id='btn_eliminar' data-objeto='$key'>
+                                            <a type='button' class='btn btn-outline-danger' id='btn_eliminar' data-objeto='<?= $key ?>'>
                                                 <span class='dashicons dashicons-trash'></span>
                                             </a>
                                         </td>
