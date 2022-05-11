@@ -204,6 +204,9 @@ function res_data_popup() {
             }
             if ( get_option( $nombre ) != null ) 
                 $deleteObjet = delete_option( $nombre );
+
+            if ( get_option( 'res_popup' ) == [] )
+                delete_option( 'res_popup' );
             
             $json = json_encode([
                 'objeto'    =>  $objeto,
