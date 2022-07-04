@@ -14,7 +14,7 @@ function enqueue_styles( $hook ) {
     // Enqueue styles.
     wp_enqueue_style(
         'admin-style',
-        plugin_dir_url( __DIR__ ) . 'admin/css/app.css',
+        plugin_dir_url( __DIR__ ) . 'admin/css/app.min.css',
         [],
         '1.0.0',
         'all'
@@ -94,7 +94,7 @@ function enqueue_scripts( $hook ) {
     // Principal archive.
     wp_enqueue_script(
         'admin-script',
-        plugin_dir_url( __DIR__ ) . 'admin/js/app.js',
+        plugin_dir_url( __DIR__ ) . 'admin/js/app.min.js',
         ['jquery', 'bootstrap-min'],
         '1.0.0',
         true
