@@ -1,9 +1,11 @@
 <?php 
 /**
- * Plugin Name:         Res pop-up
+ * Plugin Name:         Promo Pop-Up
  * Plugin URI:          https://neoslab.online
- * Description:         plugin para pop up
- * Version:             1.0.0
+ * Description:         Create pop-ups to make promotions in any page using shortcodes
+ * Version:             1.0.1
+ * Requires at least:   6.0
+ * Requires PHP:        7.4
  * Author:              Neos Lab
  * Author URI:          https://newtheme.eu
  * License:             GPL2
