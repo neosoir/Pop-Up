@@ -3,7 +3,7 @@
  * Plugin Name:         Promo Pop-Up
  * Plugin URI:          https://neoslab.online
  * Description:         Create pop-ups to make promotions in any page using shortcodes
- * Version:             1.0.1
+ * Version:             1.1.0
  * Requires at least:   6.0
  * Requires PHP:        7.4
  * Author:              Neos Lab
